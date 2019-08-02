@@ -12,7 +12,7 @@ const mutations={
      pushCollects(state,items){ //如何变化collects,插入items
         state.collects.push(items)
      },
-     popCollects(state,items){
+     popCollects(state){
         state.collects=[]
      }
  };
