@@ -34,12 +34,15 @@ export default {
   methods:{
     sendtoParent:function(){
       this.$emit("listenMsg","this msg from child")
-      this.$store.dispatch('footerStatus/showFooter')
+      this.$store.dispatch('footerStatus/hideFooter')
       console.log(this.isShow)
     },
-    ...mapActions('collection',[ //collection是指modules文件夹下的collection.js
-          'invokePushItems'  //collection.js文件中的actions里的方法，在上面的@click中执行并传入实参
-      ]),
+    invokePushItems:function(item){
+      this.$store.dispatch('collection/invokePushItems',item)
+    },
+    // ...mapActions('collection',[ //collection是指modules文件夹下的collection.js
+    //       'invokePushItems'  //collection.js文件中的actions里的方法，在上面的@click中执行并传入实参
+    //   ]),
     ...mapActions('collection',[ //collection是指modules文件夹下的collection.js
           'deleItems'  //collection.js文件中的actions里的方法，在上面的@click中执行并传入实参
       ])
